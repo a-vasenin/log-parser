@@ -1,0 +1,18 @@
+test execution logs removed
+
++----------------------------------------------------------------------------+
+|TS Summary                                                                  |
+|.Number of tests : 315                                                      |
+|.Successes       : 315                                                      |
+|.No results      : 0                                                        |
+|.Failures        : 0                                                        |
+|...Fails         : 0                                                        |
+|.....-FAIL       : 0                                                        |
+|.....-EXCPTFAIL  : 0                                                        |
+|.....-ABORTED    : 0                                                        |
+|...Notes      : 0                                                           |
+|.....-NOTE    : 0                                                           |
+|.....-BADSTSWRN  : 0                                                        |
+|...Undefined     : 0                                                        |
+|.Total time      : 00:04:45                                                 |
++----------------------------------------------------------------------------+
