@@ -5,8 +5,6 @@ import csv
 from pathlib import Path
 
 
-example = 'libraries/linux/tests/intel64/ippdc/ts_ippdc_mrg_compl_st_k0.txt'
-
 argparser = argparse.ArgumentParser()
 argparser.add_argument('libraries', default = './libraries', nargs='?', help='Path to libraries logs.\nExample: ./libraries')
 argparser.add_argument('--platform', default='all', help='can be one of [all, linux, macosx, windows]')
@@ -53,8 +51,6 @@ def parser(libraries_path, platform='all'):
                     else:
                         success_percent = 'aborted'
                     file_dict['Pass rate'] = success_percent
-
-                #file_dict = {'OS': platform.capitalize(), 'Architecture': file.parts[3], 'Domain': file.parts[4], 'Optimization': file.stem[-2:], 'Pass rate': success_percent}
 
             with open('result.csv', 'a') as f:
                 writer = csv.DictWriter(f, fieldnames, restval='n/a')
