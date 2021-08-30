@@ -6,8 +6,8 @@ from pathlib import Path
 
 
 argparser = argparse.ArgumentParser()
-argparser.add_argument('libraries', default='./libraries', nargs='?', help='Path to libraries logs.\nExample: ./libraries')
-argparser.add_argument('--platform', default='all', help='can be one of [all, linux, macosx, windows]')
+argparser.add_argument('libraries_path', help='Path to libraries logs.\nExample: ./libraries')
+argparser.add_argument('--platform', default='all', choices=['win', 'lin', 'mac'] ,help='can be one of [all, linux, macosx, windows]')
 args = argparser.parse_args()
 
 
@@ -15,8 +15,12 @@ def parser(libraries_path, platform='all'):
     platforms = []
     if platform.lower() == 'all':
         platforms = ['linux', 'macosx', 'windows']
-    else:
-        platforms.append(platform.lower())
+    elif platform.lower() == 'win':
+        platforms.append('windows')
+    elif platform.lower() == 'lin':
+        platforms.append('linux')
+    elif platform.lower() == 'mac':
+        platforms.append('macosx')
 
     fieldnames = ['OS', 'Architecture', 'Domain', 'Optimization', 'Pass rate']
     with open('result.csv', 'w') as f:
@@ -57,4 +61,4 @@ def parser(libraries_path, platform='all'):
                 writer.writerow(file_dict)
 
 
-parser(args.libraries, args.platform)
+parser(args.libraries_path, args.platform)
