@@ -23,7 +23,7 @@ def parser(libraries_path, platform='all'):
         platforms.append('macosx')
 
     fieldnames = ['OS', 'Architecture', 'Domain', 'Optimization', 'Pass rate']
-    with open('result.csv', 'w') as f:
+    with open('result.csv', 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames)
         writer.writeheader()
 
@@ -56,7 +56,7 @@ def parser(libraries_path, platform='all'):
                         success_percent = 'aborted'
                     file_dict['Pass rate'] = success_percent
 
-            with open('result.csv', 'a') as f:
+            with open('result.csv', 'a', newline='') as f:
                 writer = csv.DictWriter(f, fieldnames, restval='n/a')
                 writer.writerow(file_dict)
 
