@@ -33,7 +33,7 @@ def parser(libraries_path, platform='all'):
         end_files = [i.stem for i in path.glob('**/*.end')]
 
         for txt_file in txt_files:
-            file_dict = {'OS': platform.capitalize(), 'Architecture': txt_file.parts[3], 'Domain': txt_file.parts[4], }
+            file_dict = {'OS': platform.capitalize(), 'Architecture': txt_file.parts[txt_file.parts.index('tests')+1], 'Domain': txt_file.parts[txt_file.parts.index('tests')+2], }
             if txt_file.stem in end_files:
                 file_dict['Optimization'] = txt_file.stem[-2:]
 
